@@ -220,7 +220,8 @@ variable "egress_with_source_security_group_id" {
 variable "egress_cidr_blocks" {
   description = "List of IPv4 CIDR ranges to use on all egress rules"
   type        = list(string)
-  default     = ["0.0.0.0/0"]
+  # Lab/demo CIDR: restrict this to trusted networks before production use.
+  default = ["0.0.0.0/0"]
 }
 
 variable "egress_ipv6_cidr_blocks" {

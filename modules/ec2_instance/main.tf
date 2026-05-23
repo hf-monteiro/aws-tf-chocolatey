@@ -34,8 +34,8 @@ resource "aws_instance" "this" {
     connection {
       type        = "ssh"
       user        = "ec2-user"
-      private_key = "${file("~/.ssh/id_rsa")}"
-      host        = "${self.public_dns}"
+      private_key = file("~/.ssh/id_rsa")
+      host        = self.public_dns
     }
   }
 
@@ -48,8 +48,8 @@ resource "aws_instance" "this" {
     connection {
       type        = "ssh"
       user        = "ec2-user"
-      private_key = "${file("~/.ssh/id_rsa")}"
-      host        = "${self.public_dns}"
+      private_key = file("~/.ssh/id_rsa")
+      host        = self.public_dns
     }
   }
 
