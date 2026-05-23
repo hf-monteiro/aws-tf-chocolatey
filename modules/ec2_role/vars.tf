@@ -1,4 +1,4 @@
-variable ec2_iam_role_name {
+variable "ec2_iam_role_name" {
   type = string
 
   validation {
@@ -7,7 +7,7 @@ variable ec2_iam_role_name {
   }
 }
 
-variable policy_description {
+variable "policy_description" {
   type = string
 
   validation {
@@ -16,6 +16,6 @@ variable policy_description {
   }
 }
 
-variable assume_role_policy {}
+variable "assume_role_policy" {}
 
-variable policy {}
+variable "policy" {}

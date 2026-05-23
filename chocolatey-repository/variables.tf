@@ -52,7 +52,7 @@ variable "key_name" {
   default     = "Example-Key"
 }
 
-variable "private_ip"{
+variable "private_ip" {
   description = "AWS EC2 Private IP"
   type        = string
   default     = "172.31.10.112"

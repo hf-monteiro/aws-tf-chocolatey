@@ -19,7 +19,7 @@ data "aws_ami" "choco_local_repo" {
 
 ## SG ##
 module "security_group" {
-  source  = "../modules/sg_security_group"
+  source = "../modules/sg_security_group"
 
   name        = var.name
   description = "Security group for usage with EC2 instance"
@@ -32,9 +32,10 @@ module "security_group" {
       to_port     = 3389
       protocol    = "tcp"
       description = "RDP access"
+      # Lab/demo CIDR: restrict this to trusted networks before production use.
       cidr_blocks = "0.0.0.0/0"
     },
-     {
+    {
       from_port   = 0
       to_port     = 0
       protocol    = "-1"
@@ -50,6 +51,7 @@ module "security_group" {
       to_port     = 65535
       protocol    = "all"
       description = "All traffic out"
+      # Lab/demo CIDR: restrict this to trusted networks before production use.
       cidr_blocks = "0.0.0.0/0"
     }
   ]
@@ -59,8 +61,8 @@ module "security_group" {
 
 ### S3 ROLE ###
 resource "aws_iam_instance_profile" "test_profile" {
-  name      = "${var.name}-intance-profile"
-  role      = var.ec2_role 
+  name = "${var.name}-intance-profile"
+  role = var.ec2_role
 }
 
 ################################################################################
